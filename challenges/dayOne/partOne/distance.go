@@ -10,10 +10,11 @@ import (
 	"strings"
 )
 
+const filePath = "challenges/dayOne/distances_list.txt"
+
 // TotalDistance calculates the total distance between two sorted lists.
 func TotalDistance() (int, error) {
-	const filePath = "challenges/dayOne/distances_list.txt"
-	listOne, listTwo, err := readTxtFile(filePath)
+	listOne, listTwo, err := ReadTxtFile(filePath)
 	if err != nil {
 		return 0, err
 	}
@@ -25,7 +26,7 @@ func TotalDistance() (int, error) {
 }
 
 // readTxtFile reads and parses two lists of integers from the given file.
-func readTxtFile(filePath string) ([]int, []int, error) {
+func ReadTxtFile(filePath string) ([]int, []int, error) {
 	file, err := os.Open(filePath)
 	if err != nil {
 		return nil, nil, fmt.Errorf("failed to open file: %w", err)
